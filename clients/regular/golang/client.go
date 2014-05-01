@@ -15,11 +15,12 @@ func NewTodoManagerProxy(url string) todo_manager.TodoManager {
 func main() {
   proxy := NewTodoManagerProxy("http://localhost:3000/todos")
 
-  c := todo_manager.TodoProperties{"Call Dad", false}
+  props := todo_manager.TodoProperties{"Call Dad", false}
 
-  res, err := proxy.CreateTodo(c)
+  res, err := proxy.CreateTodo(props)
+
   if err == nil {
-    fmt.Println("Success! Created Todo: ", res)
+    fmt.Println(res)
   } else {
     fmt.Println("ERROR! ", err)
   }
