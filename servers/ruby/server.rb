@@ -2,7 +2,6 @@
 require 'forwardable'
 require 'barrister'
 require 'sinatra'
-require 'json'
 require './store.rb'
 
 class TodoManager
