@@ -4,7 +4,7 @@ struct TodoProperties {
 }
 
 struct Todo extends TodoProperties {
-    id        int [optional]
+    id int
 }
 
 interface TodoManager {
