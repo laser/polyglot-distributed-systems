@@ -1,0 +1,11 @@
+  {
+  "name": "todo-client",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_batch.js"
+  },
+  "dependencies": {
+    "barrister": "*"
+  }
+}
