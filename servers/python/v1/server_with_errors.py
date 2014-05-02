@@ -40,11 +40,11 @@ class TodoManager(object):
 
   @guard(UserDataInvalid, RecordNotFound)
   def updateTodo(self, todo):
-    return self.store.update(todo.id, todo)
+    return self.store.update(todo['id'], todo)
 
   @guard(RecordNotFound)
   def deleteTodo(self, todo):
-    return self.store.delete(todo.id)
+    return self.store.delete(todo['id'])
 
 store = Store()
 todo_manager = TodoManager(store)

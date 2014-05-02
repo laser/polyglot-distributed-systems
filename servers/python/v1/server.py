@@ -18,10 +18,10 @@ class TodoManager(object):
     return self.store.save(properties)
 
   def updateTodo(self, todo):
-    return self.store.update(todo.id, todo)
+    return self.store.update(todo['id'], todo)
 
   def deleteTodo(self, todo):
-    return self.store.delete(todo.id)
+    return self.store.delete(todo['id'])
 
 store = Store()
 todo_manager = TodoManager(store)

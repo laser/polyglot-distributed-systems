@@ -19,11 +19,11 @@ class TodoManager
   end
 
   def updateTodo(todo)
-    @store.update(todo.id, todo)
+    @store.update(todo['id'], todo)
   end
 
   def deleteTodo(todo)
-    @store.delete(todo.id)
+    @store.delete(todo['id'])
   end
 
 end

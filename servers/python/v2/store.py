@@ -37,7 +37,7 @@ class Store(object):
     return self.cache.values()
 
   def update(self, id, data):
-    if id not in self['cache']:
+    if id not in self.cache:
       raise RecordNotFound("No record found with id" + id)
 
     todo = {
@@ -46,7 +46,7 @@ class Store(object):
       'completed' : data['completed']
     }
 
-    self['cache'][id] = todo
+    self.cache[id] = todo
 
     return todo
 

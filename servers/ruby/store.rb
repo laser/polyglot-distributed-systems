@@ -25,8 +25,8 @@ class Store
   def update(id, data)
     todo = {
       'id' => id,
-      'title' => @data['title'],
-      'completed' => @data['completed']
+      'title' => data['title'],
+      'completed' => data['completed']
     }
 
     @cache[id] = todo

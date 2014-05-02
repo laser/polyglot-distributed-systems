@@ -40,7 +40,10 @@ module.exports.store = (function(){
     },
 
     delete: function(id){
-      delete cache[id]
+      if (cache[id]) {
+        delete cache[id]
+        return true;
+      }
     }
   }
 
