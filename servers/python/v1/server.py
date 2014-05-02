@@ -26,7 +26,7 @@ class TodoManager(object):
 store = Store()
 todo_manager = TodoManager(store)
 
-contract = barrister.contract_from_file('../todo_manager.json')
+contract = barrister.contract_from_file('../../todo_manager.v1.json')
 server   = barrister.Server(contract)
 server.add_handler('TodoManager', todo_manager)
 

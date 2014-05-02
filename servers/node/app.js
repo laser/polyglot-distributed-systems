@@ -4,7 +4,7 @@ var express = require('express')
   , path = require('path')
   , barrister = require('barrister')
   , store = require("./store").store
-  , idl = JSON.parse(fs.readFileSync("../todo_manager.json").toString());
+  , idl = JSON.parse(fs.readFileSync("../todo_manager.v1.json").toString());
 
 var app = express();
 

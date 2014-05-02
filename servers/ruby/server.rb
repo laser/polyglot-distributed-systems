@@ -31,7 +31,7 @@ end
 store = Store.new
 todo_manager = TodoManager.new store
 
-contract = Barrister::contract_from_file('../todo_manager.json')
+contract = Barrister::contract_from_file('../todo_manager.v1.json')
 server   = Barrister::Server.new(contract)
 server.add_handler('TodoManager', todo_manager)
 
