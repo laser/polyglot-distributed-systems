@@ -30,7 +30,7 @@ func (impl TodoManagerImpl) DeleteTodo(todo t.Todo) (bool, error) {
 func main() {
   idl := barrister.MustParseIdlJson([]byte(t.IdlJsonRaw))
   svr := t.NewJSONServer(idl, true, TodoManagerImpl{})
-  http.Handle("/", &svr)
+  http.Handle("/v1/todos", &svr)
 
   fmt.Println("Starting TodoManager server on localhost:3000")
   err := http.ListenAndServe(":3000", nil)

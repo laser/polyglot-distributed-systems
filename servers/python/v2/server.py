@@ -39,7 +39,7 @@ v2_contract = barrister.contract_from_file('../../todo_manager.v2.json')
 v2_server = barrister.Server(v2_contract)
 v2_server.add_handler('TodoManager', TodoManager(store))
 
-@post('/todos')
+@post('/v1/todos')
 def todos_v1():
   return v1_server.call_json(request.body.read())
 
