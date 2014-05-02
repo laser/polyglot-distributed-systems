@@ -4,37 +4,39 @@ import "fmt"
 import "github.com/coopernurse/barrister-go"
 import "net/http"
 import t "todo_manager"
+import s "todo_store"
 
-type TodoManagerImpl struct{}
+type TodoManagerImpl struct {
+	Store *s.Store
+}
 
 func (impl TodoManagerImpl) ReadTodos() ([]t.Todo, error) {
-  // load Todos from the data store
-  return []t.Todo{}, nil
+	return impl.Store.GetAll()
 }
 
 func (impl TodoManagerImpl) CreateTodo(properties t.TodoProperties) (t.Todo, error) {
-  // save a Todo to the data store
-  return t.Todo{}, nil
+	return impl.Store.Save(properties)
 }
 
 func (impl TodoManagerImpl) UpdateTodo(todo t.Todo) (t.Todo, error) {
-  // load the Todo from data store by id, update it, return it
-  return t.Todo{}, nil
+	return impl.Store.Update(todo)
 }
 
 func (impl TodoManagerImpl) DeleteTodo(todo t.Todo) (bool, error) {
-  // delete the Todo from store by id and blow up if not found
-  return true, nil
+	return impl.Store.Delete(todo.Id)
 }
 
 func main() {
-  idl := barrister.MustParseIdlJson([]byte(t.IdlJsonRaw))
-  svr := t.NewJSONServer(idl, true, TodoManagerImpl{})
-  http.Handle("/v1/todos", &svr)
+	idl := barrister.MustParseIdlJson([]byte(t.IdlJsonRaw))
+	store := s.NewStore()
+	mgr := TodoManagerImpl{store}
+	svr := t.NewJSONServer(idl, true, mgr)
 
-  fmt.Println("Starting TodoManager server on localhost:3000")
-  err := http.ListenAndServe(":3000", nil)
-  if err != nil {
-    panic(err)
-  }
+	http.Handle("/v1/todos", &svr)
+
+	fmt.Println("Starting TodoManager server on localhost:3000")
+	err := http.ListenAndServe(":3000", nil)
+	if err != nil {
+		panic(err)
+	}
 }
