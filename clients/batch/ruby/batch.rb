@@ -2,7 +2,7 @@
 
 require 'barrister'
 
-trans  = Barrister::HttpTransport.new("http://localhost:3000/todos")
+trans  = Barrister::HttpTransport.new("http://localhost:3000/v1/todos")
 client = Barrister::Client.new(trans)
 
 batch = client.start_batch()

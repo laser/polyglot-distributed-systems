@@ -37,7 +37,7 @@ server.add_handler('TodoManager', todo_manager)
 
 set :port, 3000
 
-post '/todos' do
+post '/v1/todos' do
   request.body.rewind
   resp = server.handle_json(request.body.read)
 

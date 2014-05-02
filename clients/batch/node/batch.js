@@ -2,7 +2,7 @@
 
 var barrister = require('barrister');
 
-var client = barrister.httpClient("http://localhost:3000/todos");
+var client = barrister.httpClient("http://localhost:3000/v1/todos");
 
 client.loadContract(function(err) {
   var batch = client.startBatch();

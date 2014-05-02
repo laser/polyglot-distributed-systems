@@ -5,7 +5,7 @@
 include_once("./lib/barrister.php");
 
 $barrister = new Barrister();
-$client    = $barrister->httpClient("http://localhost:3000/todos");
+$client    = $barrister->httpClient("http://localhost:3000/v1/todos");
 $proxy     = $client->proxy("TodoManager");
 
 try {

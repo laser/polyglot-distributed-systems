@@ -1,4 +1,4 @@
-var client = Barrister.httpClient("/todos");
+var client = Barrister.httpClient("/v1/todos");
 
 client.loadContract(function() {
   var batch = client.startBatch();

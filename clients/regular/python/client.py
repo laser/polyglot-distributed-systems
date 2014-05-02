@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import barrister
 
-trans  = barrister.HttpTransport("http://localhost:3000/todos")
+trans  = barrister.HttpTransport("http://localhost:3000/v1/todos")
 client = barrister.Client(trans)
 
 try:

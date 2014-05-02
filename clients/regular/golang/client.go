@@ -13,7 +13,7 @@ func NewTodoManagerProxy(url string) todo_manager.TodoManager {
 }
 
 func main() {
-  proxy := NewTodoManagerProxy("http://localhost:3000/todos")
+  proxy := NewTodoManagerProxy("http://localhost:3000/v1/todos")
 
   props := todo_manager.TodoProperties{"Call Dad", false}
 
