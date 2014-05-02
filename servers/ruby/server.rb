@@ -22,7 +22,7 @@ class TodoManager
     @store.update(todo.id, todo)
   end
 
-  def deleteTodo(todo_id)
+  def deleteTodo(todo)
     @store.delete(todo.id)
   end
 

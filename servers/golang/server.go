@@ -22,7 +22,7 @@ func (impl TodoManagerImpl) UpdateTodo(todo t.Todo) (t.Todo, error) {
   return t.Todo{}, nil
 }
 
-func (impl TodoManagerImpl) DeleteTodo(a int64) (bool, error) {
+func (impl TodoManagerImpl) DeleteTodo(todo t.Todo) (bool, error) {
   // delete the Todo from store by id and blow up if not found
   return true, nil
 }

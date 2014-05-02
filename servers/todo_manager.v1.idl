@@ -18,5 +18,5 @@ interface TodoManager {
     updateTodo(todo Todo) Todo
 
     // deletes Todo and returns true
-    deleteTodo(id int) bool
+    deleteTodo(todo Todo) bool
 }

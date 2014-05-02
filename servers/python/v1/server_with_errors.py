@@ -43,7 +43,7 @@ class TodoManager(object):
     return self.store.update(todo.id, todo)
 
   @guard(RecordNotFound)
-  def deleteTodo(self, todo_id):
+  def deleteTodo(self, todo):
     return self.store.delete(todo.id)
 
 store = Store()

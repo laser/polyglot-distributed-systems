@@ -20,7 +20,7 @@ class TodoManager(object):
   def updateTodo(self, todo):
     return self.store.update(todo.id, todo)
 
-  def deleteTodo(self, todo_id):
+  def deleteTodo(self, todo):
     return self.store.delete(todo.id)
 
 store = Store()

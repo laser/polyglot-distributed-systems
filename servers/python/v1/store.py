@@ -49,3 +49,6 @@ class Store(object):
     self['cache'][id] = todo
 
     return todo
+
+  def delete(self, id):
+    return not not self['cache'].pop(id)

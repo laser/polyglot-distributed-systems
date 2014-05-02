@@ -1,9 +1,5 @@
 class Store
 
-  class RecordNotFoundError < StandardError
-
-  end
-
   def initialize
     @cache = {}
     @next_id = 0
@@ -27,8 +23,6 @@ class Store
   end
 
   def update(id, data)
-    raise RecordNotFoundError "No record found with id #{id}" unless @cache[id]
-
     todo = {
       'id' => id,
       'title' => @data['title'],
@@ -38,6 +32,10 @@ class Store
     @cache[id] = todo
 
     todo
+  end
+
+  def delete(id)
+    !!@cache.delete(id)
   end
 
 end
