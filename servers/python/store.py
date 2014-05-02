@@ -1,10 +1,18 @@
-class RecordNotFoundError(Exception):
-
-  def __init(self, value):
+class BaseRpcException(Exception):
+  def __init__(self, value):
     self.value = value
 
   def __str__(self):
     return repr(self.value)
+
+class UserDataInvalid(BaseRpcException):
+  pass
+
+class RecordNotFound(BaseRpcException):
+  pass
+
+class MaxTodosExceeded(BaseRpcException):
+  pass
 
 class Store(object):
 
@@ -30,7 +38,7 @@ class Store(object):
 
   def update(self, id, data):
     if id not in self['cache']:
-      raise RecordNotFoundError("No record found with id" + id)
+      raise RecordNotFound("No record found with id" + id)
 
     todo = {
       'id' : id,
