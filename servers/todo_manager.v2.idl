@@ -1,0 +1,22 @@
+struct TodoProperties {
+    title     string
+    completed bool
+}
+
+struct Todo extends TodoProperties {
+    id int
+}
+
+interface TodoManager {
+    // returns all Todos
+    readTodos() []Todo
+
+    // creates new Todo and returns it with an id
+    createTodo(todo TodoProperties) Todo
+
+    // updates Todo and returns it
+    updateTodo(todo Todo) Todo
+
+    // deletes Todo and returns true
+    deleteTodo(id int) bool
+}
