@@ -1,10 +1,12 @@
 package main
 
-import "fmt"
-import "github.com/coopernurse/barrister-go"
-import "net/http"
-import t "todo_manager"
-import s "todo_store"
+import (
+  "fmt"
+  "github.com/coopernurse/barrister-go"
+  "net/http"
+  t "./todos"
+  s "./store"
+)
 
 type TodoManagerImpl struct {
 	Store *s.Store
